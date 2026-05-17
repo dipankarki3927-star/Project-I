@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form Validation</title>
+</head>
+<body>
+
+    <h2>Login Form</h2>
+
+    <form onsubmit="return validateForm()">
+        <label>Username:</label><br>
+        <input type="text" id="username"><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" id="password"><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Check required fields
+            if (username === "" || password === "") {
+                alert("Both username and password are required.");
+                return false;
+            }
+
+            // Check length > 5
+            if (username.length <= 5 || password.length <= 5) {
+                alert("Username and password must be greater than 5 characters.");
+                return false;
+            }
+
+            // Check username and password are not same
+            if (username === password) {
+                alert("Username and password cannot be the same.");
+                return false;
+            }
+
+            alert("Login successful!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
